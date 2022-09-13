@@ -1,26 +1,43 @@
-import React from 'react';
+import {useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Api from './components/Api';
+import NavbarMinimal from './components/NawBar';
+import TableReviews from './components/table';
+import Login from './components/Login';
+import RoutesApp from './components/Routesy';
+import { AppShell, Navbar, Header } from '@mantine/core';
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+import {
+  Routes,
+  Route,
+} from 'react-router-dom';
 
+
+
+
+const textState = atom({
+  key: 'textState', // unique ID (with respect to other atoms/selectors)
+  default: [{title: "N/A", author: "N/A", year:"N/A", time:{total: 0, current: 0}}], // default value (aka initial value)
+});
 function App() {
+  Api()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+    <Route path="/" element={<Login />} />
+    <Route path="*" element={<AppShell
+    navbar={<Navbar width={{ base: 65 }} height={500}>{<NavbarMinimal></NavbarMinimal>}</Navbar>}>
+    <RoutesApp/>
+    </AppShell>} />
+    </Routes>
   );
 }
-
+//<Api files={[]} />
 export default App;
+export { textState };
