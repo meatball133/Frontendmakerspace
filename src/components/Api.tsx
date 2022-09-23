@@ -18,7 +18,7 @@ const Api = () => {
   console.log("hi")
   const getMovies = async () => {
      try {
-      const response = await fetch('http://127.0.0.1:8787');
+      const response = await fetch('http://127.0.0.1:8787/status');
       const json = await response.json();
       console.log(json);
       setText(json)

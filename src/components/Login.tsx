@@ -18,25 +18,31 @@ import {
 } from '@mantine/core';
 import {GoogleIcon} from './google';
 import { group } from 'console';
+import GoogleLogin from './LoginFunctional';
 
 export function GoogleButton(props: ButtonProps) {
-    return <Button leftIcon={<GoogleIcon/>} variant="default" color="gray" {...props} />;
+    return <Button leftIcon={<GoogleIcon/>} variant="default" color="gray" {...props}></Button>;
   }
 
+
+
 export default function Login(props: PaperProps) {
+
   return (
+    <>
     <Center>
         <Container px={0} fluid={true}>
     <Paper radius="lg" p="xl" withBorder {...props}>
       <Text size="lg" weight={700}>
-        Välkomen till Makerspace, loga in med
+        Välkomen till Makerspace
       </Text>
 
       <Group grow mb="lg" mt="lg">
-        <GoogleButton radius="xl">Google</GoogleButton>
+        <GoogleLogin/>
       </Group>
     </Paper>
     </Container>
     </Center>
+    </>
   );
 }
