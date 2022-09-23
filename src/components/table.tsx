@@ -25,18 +25,18 @@ export default function TableReviews() {
   const { classes, theme } = useStyles();
   const [text, setText] = useRecoilState(textState);
   const rows = text.map((row) => {
-    const time_left = (row.time.current / row.time.total) * 100;
-    const total_time =  100 - time_left 
-    const total = row.time.total;
-    const actual_time_left = total -row.time.current 
+    const time_left:number = (row.time.current / row.time.total) * 100;
+    const total_time:number =  100 - time_left 
+    const total:number = row.time.total;
+    const actual_time_left:number = total -row.time.current 
     console.log(actual_time_left)
-    let h = Math.floor(row.time.total  / 3600);
-    let m = Math.floor(row.time.total % 3600 / 60);
-    let h2 = Math.floor(actual_time_left  / 3600);
-    let m2 = Math.floor(actual_time_left % 3600 / 60);
+    let h:number = Math.floor(row.time.total  / 3600);
+    let m:number = Math.floor(row.time.total % 3600 / 60);
+    let h2:number = Math.floor(actual_time_left  / 3600);
+    let m2:number = Math.floor(actual_time_left % 3600 / 60);
     console.log(h2,m2)
-    let time = "0";
-    let time2 = "0";
+    let time:string = "0";
+    let time2:string = "0";
     if (String(m).length === 1){
       time = String(h) + ":0" + String(m)
     }else{
