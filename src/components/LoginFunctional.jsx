@@ -16,7 +16,7 @@ const GoogleLogin = () => {
     /* global google */
     google.accounts.id.initialize({
       client_id:
-        '1058252294256-0ej4mt1vgmktaelhcgkt2bl7r9emd2pm.apps.googleusercontent.com',
+        'x',
       callback: handleCallback,
     });
 
