@@ -22,7 +22,7 @@ const Api = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({uuid: localStorage.getItem('uuid')}),
+      body: JSON.stringify({"uuid": localStorage.getItem('uuid')}),
       });
       const json = await response.json();
       console.log(json);
