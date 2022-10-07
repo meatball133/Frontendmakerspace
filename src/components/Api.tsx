@@ -1,4 +1,4 @@
-import React, { Component,useEffect } from 'react';
+import React, { Component,useEffect,useState } from 'react';
 import Page from './Page';
 
 import { textState } from '../App';
@@ -15,10 +15,15 @@ import {
 
 const Api = () => {
   const [text, setText] = useRecoilState(textState);
-  console.log("hi")
   const getMovies = async () => {
      try {
-      const response = await fetch('http://127.0.0.1:8787/status');
+      const response = await fetch('http://127.0.0.1:8787/status', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({uuid: localStorage.getItem('uuid')}),
+      });
       const json = await response.json();
       console.log(json);
       setText(json)

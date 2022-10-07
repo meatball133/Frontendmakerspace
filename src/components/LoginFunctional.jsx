@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
-export function handleCallback(response) {
-  fetch('http://127.0.0.1:8787/jsondata', {
+export async function handleCallback(response, setItems) {
+  let k = await fetch('http://127.0.0.1:8787/jsondata', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
     },
     body: JSON.stringify({ credential: response.credential }),
-  });
-  console.log(response.credential);
+  }); /*
+    .then((response) => {
+      console.log(response.headers.get('Set-Cookie'));
+      response.json();
+    })
+    .then((data) => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });*/
+  localStorage.setItem('uuid', await k.json());
 }
-
 const GoogleLogin = () => {
   useEffect(() => {
     /* global google */
