@@ -101,7 +101,7 @@ export default function NavbarMinimal() {
 
 export async function logout() {
   const loggedIn = localStorage.getItem('uuid');
-  await fetch('http://127.0.0.1:8787/logout', {
+  await fetch('https://worker.nti-johanneberg.workers.dev/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({"uuid": localStorage.getItem('uuid')}),})
