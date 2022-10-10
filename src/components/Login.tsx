@@ -28,7 +28,16 @@ export function GoogleButton(props: ButtonProps) {
 
 export default function Login(props: PaperProps) {
   console.log("hi")
-  GoogleLogin()
+  const script = document.createElement('script');
+  script.src = 'https://accounts.google.com/gsi/client';
+  script.id = 'oauh2';
+  document.body.appendChild(script);
+  script.onload = () => { 
+      handle()
+  };
+  const handle = () => {
+    GoogleLogin()
+  }
   return (
     <>
     <Center>

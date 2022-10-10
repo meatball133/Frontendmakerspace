@@ -21,9 +21,10 @@ export async function handleCallback(response, setItems) {
   localStorage.setItem('uuid', await k.json());
   window.location.reload(false);
 }
-async function GoogleLogin() {
+function GoogleLogin() {
   /* global google */
-  await google.accounts.id.initialize({
+  console.log('banana');
+  google.accounts.id.initialize({
     client_id:
       '1058252294256-0ej4mt1vgmktaelhcgkt2bl7r9emd2pm.apps.googleusercontent.com',
     callback: handleCallback,
