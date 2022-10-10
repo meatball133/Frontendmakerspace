@@ -21,26 +21,18 @@ export async function handleCallback(response, setItems) {
   localStorage.setItem('uuid', await k.json());
   window.location.reload(false);
 }
-const GoogleLogin = () => {
-  useEffect(() => {
-    /* global google */
-    google.accounts.id.initialize({
-      client_id:
-        '1058252294256-0ej4mt1vgmktaelhcgkt2bl7r9emd2pm.apps.googleusercontent.com',
-      callback: handleCallback,
-    });
-
-    google.accounts.id.renderButton(document.getElementById('google_sign_in'), {
-      theme: 'filled_black',
-      size: 'large',
-      shape: 'pill',
-    });
+async function GoogleLogin() {
+  /* global google */
+  await google.accounts.id.initialize({
+    client_id:
+      '1058252294256-0ej4mt1vgmktaelhcgkt2bl7r9emd2pm.apps.googleusercontent.com',
+    callback: handleCallback,
   });
 
-  return (
-    <>
-      <div id="google_sign_in" />
-    </>
-  );
-};
+  google.accounts.id.renderButton(document.getElementById('google_sign_in'), {
+    theme: 'filled_black',
+    size: 'large',
+    shape: 'pill',
+  });
+}
 export default GoogleLogin;

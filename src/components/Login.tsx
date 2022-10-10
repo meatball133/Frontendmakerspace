@@ -27,7 +27,8 @@ export function GoogleButton(props: ButtonProps) {
 
 
 export default function Login(props: PaperProps) {
-
+  console.log("hi")
+  GoogleLogin()
   return (
     <>
     <Center>
@@ -38,7 +39,7 @@ export default function Login(props: PaperProps) {
       </Text>
 
       <Group grow mb="lg" mt="lg">
-        <GoogleLogin/>
+        <div id="google_sign_in" />
       </Group>
     </Paper>
     </Container>
