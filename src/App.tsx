@@ -17,6 +17,7 @@ import {
 import {
   Routes,
   Route,
+  Navigate,
 } from 'react-router-dom';
 
 
@@ -27,12 +28,14 @@ const textState = atom({
   default: [{title: "N/A", author: "N/A", year:"N/A", time:{total: 0, current: 0}}], // default value (aka initial value)
 });
 function App() {
+  const loggedIn = localStorage.getItem('uuid');
   Api()
   return (
     <Routes>
-    <Route path="/" element={<Login />} />
-    <Route path="*" element={<AppShell
-    navbar={<Navbar width={{ base: 65 }} height={500}>{<NavbarMinimal></NavbarMinimal>}</Navbar>}>
+    <Route path="/" element={loggedIn ? <Navigate to="/table" /> :<Login />} />
+    <Route path="*" element={!loggedIn ? <Navigate to="/" />:<AppShell 
+    padding={0}
+    navbar={<Navbar width={{ base: 50 }} height={500}>{<NavbarMinimal></NavbarMinimal>}</Navbar>}>
     <RoutesApp/>
     </AppShell>} />
     </Routes>

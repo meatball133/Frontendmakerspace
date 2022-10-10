@@ -25,8 +25,12 @@ const Api = () => {
       body: JSON.stringify({"uuid": localStorage.getItem('uuid')}),
       });
       const json = await response.json();
+      if (json === "No valid uuid"){
+        localStorage.setItem('uuid', "");
+      }
+      else{
       console.log(json);
-      setText(json)
+      setText(json)}
     } catch (error) {
       console.error(error);
     }
