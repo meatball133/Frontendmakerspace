@@ -29,6 +29,7 @@ export default function TableReviews() {
     let time2:string = "0";
     let time_left:number = 0
     let total_time:number =  0 
+    console.log(row.current_print)
     if (row.current_print){
     time_left = (row.current_print.current_time / row.current_print.total_time) * 100;
     total_time =  100 - time_left 
