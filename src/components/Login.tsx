@@ -1,11 +1,11 @@
-
+import { useViewportSize } from '@mantine/hooks';
 import {
   Text,
   Paper,
   Group,
   PaperProps,
   Center,
-  Container
+  Container, 
 
 } from '@mantine/core';
 import GoogleLogin from './LoginFunctional';
@@ -22,10 +22,11 @@ export default function Login(props: PaperProps) {
   const handle = () => {
     GoogleLogin()
   }
+  const { height, width } = useViewportSize();
   return (
     <>
-    <Center>
-        <Container px={0} fluid={true}>
+    <Center sx={{ height: "90vh" }}>
+        <Container px={0} fluid={true} >
     <Paper radius="lg" p="xl" withBorder {...props}>
       <Text size="lg" weight={700}>
         Välkomen till Makerspace
@@ -37,6 +38,7 @@ export default function Login(props: PaperProps) {
     </Paper>
     </Container>
     </Center>
+    
     </>
   );
 }
