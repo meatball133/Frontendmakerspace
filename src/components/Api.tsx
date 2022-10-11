@@ -1,20 +1,13 @@
-import React, { Component,useEffect,useState } from 'react';
-import Page from './Page';
+import { useEffect } from 'react';
 
 import { textState } from '../App';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import {useRecoilState,} from 'recoil';
 
 
 
 
 const Api = () => {
-  const [text, setText] = useRecoilState(textState);
+  const [_, setText] = useRecoilState(textState);
   const getMovies = async () => {
      try {
       const response = await fetch('https://worker.nti-johanneberg.workers.dev/status', {

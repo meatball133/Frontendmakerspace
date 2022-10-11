@@ -1,30 +1,14 @@
-import { useToggle, upperFirst } from '@mantine/hooks';
+
 import {
-  TextInput,
-  PasswordInput,
   Text,
   Paper,
   Group,
   PaperProps,
-  Button,
-  Divider,
-  Checkbox,
-  Anchor,
-  Stack,
-  ButtonProps,
   Center,
   Container
 
 } from '@mantine/core';
-import {GoogleIcon} from './google';
-import { group } from 'console';
 import GoogleLogin from './LoginFunctional';
-
-export function GoogleButton(props: ButtonProps) {
-    return <Button leftIcon={<GoogleIcon/>} variant="default" color="gray" {...props}></Button>;
-  }
-
-
 
 export default function Login(props: PaperProps) {
   console.log("hi")

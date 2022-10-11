@@ -1,19 +1,10 @@
-import {useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Api from './components/Api';
 import NavbarMinimal from './components/NawBar';
-import TableReviews from './components/table';
 import Login from './components/Login';
 import RoutesApp from './components/Routesy';
-import { AppShell, Navbar, Header } from '@mantine/core';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import { AppShell, Navbar } from '@mantine/core';
+import {atom} from 'recoil';
 import {
   Routes,
   Route,

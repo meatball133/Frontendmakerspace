@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Navbar, Center, Tooltip, UnstyledButton, createStyles, Stack,Affix } from '@mantine/core';
+import { Navbar, Center, Tooltip, UnstyledButton, createStyles, Stack } from '@mantine/core';
 import {
   TablerIcon,
   IconHome2,
   IconGauge,
   IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
   IconUser,
   IconSettings,
   IconLogout,

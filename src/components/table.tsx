@@ -1,13 +1,6 @@
-import { createStyles, Table, Progress, Anchor, Text, ScrollArea, Portal, Center, Group } from '@mantine/core';
-import { group } from 'console';
+import { createStyles, Table, Progress, Text, ScrollArea, Center, Group } from '@mantine/core';
 import { textState } from '../App';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import { useRecoilState, } from 'recoil';
 
 
 
@@ -23,7 +16,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function TableReviews() {
   const { classes, theme } = useStyles();
-  const [text, setText] = useRecoilState(textState);
+  const [text, _] = useRecoilState(textState);
   const rows = text.map((row) => {
     let time:string = "0";
     let time2:string = "0";
