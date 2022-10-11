@@ -25,18 +25,20 @@ export default function TableReviews() {
   const { classes, theme } = useStyles();
   const [text, setText] = useRecoilState(textState);
   const rows = text.map((row) => {
-    const time_left:number = (row.time.current / row.time.total) * 100;
-    const total_time:number =  100 - time_left 
-    const total:number = row.time.total;
-    const actual_time_left:number = total -row.time.current 
+    let time:string = "0";
+    let time2:string = "0";
+    let time_left:number = 0
+    let total_time:number =  0 
+    time_left = (row.current_print.current_time / row.current_print.total_time) * 100;
+    total_time =  100 - time_left 
+    const total:number = row.current_print.total_time;
+    const actual_time_left:number = total -row.current_print.current_time
     console.log(actual_time_left)
-    let h:number = Math.floor(row.time.total  / 3600);
-    let m:number = Math.floor(row.time.total % 3600 / 60);
+    let h:number = Math.floor(row.current_print.total_time  / 3600);
+    let m:number = Math.floor(row.current_print.total_time % 3600 / 60);
     let h2:number = Math.floor(actual_time_left  / 3600);
     let m2:number = Math.floor(actual_time_left % 3600 / 60);
     console.log(h2,m2)
-    let time:string = "0";
-    let time2:string = "0";
     if (String(m).length === 1){
       time = String(h) + ":0" + String(m)
     }else{
@@ -47,21 +49,21 @@ export default function TableReviews() {
     }else{
       time2 = String(h2) + ":" + String(m2)
     }
+    if (time2 === "NaN:NaN"){
+      time2 = "0:00"
+      time = "0:00"
+    }
 
     return (
-      <tr key={row.title}>
+      <tr key={row.id}>
         <td >
         <Center>
-            {row.title}
+            {row.name}
             </Center>
         </td>
 
-        <td><Center>{row.year}</Center></td>
+        <td><Center>{row.state}</Center></td>
 
-        <td><Center>
-            {row.author}
-            </Center>
-        </td>
         <td>
           <Group position="apart">
             <Text size="xs" weight={700}>
@@ -104,10 +106,6 @@ export default function TableReviews() {
             Status
             </Text>
             </th>
-            <th>            
-            <Text align='center'>
-            Material
-            </Text></th>
             <th>            <Text align='center'>
             Time
             </Text></th>

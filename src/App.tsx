@@ -25,7 +25,7 @@ import {
 
 const textState = atom({
   key: 'textState', // unique ID (with respect to other atoms/selectors)
-  default: [{title: "N/A", author: "N/A", year:"N/A", time:{total: 0, current: 0}}], // default value (aka initial value)
+  default: [{id: 0, name: "N/A", state:"N/A", current_print:{current_time: 0, total_time: 0}}], // default value (aka initial value)
 });
 function App() {
   const loggedIn = localStorage.getItem('uuid');

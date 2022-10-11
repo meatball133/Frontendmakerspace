@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export async function handleCallback(response, setItems) {
-  let k = await fetch('https://worker.nti-johanneberg.workers.dev/jsondata', {
+  let k = await fetch('http://127.0.0.1:8787/jsondata', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',

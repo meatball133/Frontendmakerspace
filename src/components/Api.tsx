@@ -17,7 +17,7 @@ const Api = () => {
   const [text, setText] = useRecoilState(textState);
   const getMovies = async () => {
      try {
-      const response = await fetch('https://worker.nti-johanneberg.workers.dev/status', {
+      const response = await fetch('http://127.0.0.1:8787/status', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
