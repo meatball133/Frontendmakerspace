@@ -29,6 +29,7 @@ export default function TableReviews() {
     let time2:string = "0";
     let time_left:number = 0
     let total_time:number =  0 
+    if (row.current_print){
     time_left = (row.current_print.current_time / row.current_print.total_time) * 100;
     total_time =  100 - time_left 
     const total:number = row.current_print.total_time;
@@ -48,7 +49,7 @@ export default function TableReviews() {
       time2 = String(h2) + ":0" + String(m2)
     }else{
       time2 = String(h2) + ":" + String(m2)
-    }
+    }}
     if (time2 === "NaN:NaN"){
       time2 = "0:00"
       time = "0:00"
