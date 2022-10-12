@@ -4,7 +4,6 @@ interface FullName {
 }
 
 const Page = ({ name, status }:FullName) => {
-  console.log(name);
   return (
     <>
       <span>{`${name} ${status}`}</span>

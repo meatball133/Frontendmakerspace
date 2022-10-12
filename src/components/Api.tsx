@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
-
 import { textState } from '../App';
-import {useRecoilState,} from 'recoil';
-
-
+import { useRecoilState } from 'recoil';
 
 
 const Api = () => {
   const [_, setText] = useRecoilState(textState);
-  const getMovies = async () => {
-     try {
+  const apirequest = async () => {
+    try {
       const response = await fetch('https://worker.nti-johanneberg.workers.dev/status', {
       method: 'POST',
       headers: {
@@ -22,15 +19,17 @@ const Api = () => {
         localStorage.setItem('uuid', "");
       }
       else{
-      console.log(json);
+      console.log("Data successfully fetched");
       setText(json)}
-    } catch (error) {
-      console.error(error);
+    } 
+    catch (error) {
+      console.error("Error:", error);
     }
   }
 
   useEffect(() => {
-    getMovies();
-  }, [])}
+    apirequest();
+  }, [])
+}
 
-  export default Api;
+export default Api;

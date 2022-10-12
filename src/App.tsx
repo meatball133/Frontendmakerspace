@@ -23,15 +23,15 @@ function App() {
   Api()
   return (
     <Routes>
-    <Route path="/" element={loggedIn ? <Navigate to="/table" /> :<Login />} />
-    <Route path="*" element={!loggedIn ? <Navigate to="/" />:<AppShell 
-    padding={0}
-    navbar={<Navbar width={{ base: 50 }} height={500}>{<NavbarMinimal></NavbarMinimal>}</Navbar>}>
-    <RoutesApp/>
-    </AppShell>} />
+      <Route path="/" element={loggedIn ? <Navigate to="/table" /> :<Login />} />
+        <Route path="*" element={!loggedIn ? <Navigate to="/" />:
+          <AppShell padding={0} navbar={<Navbar width={{ base: 50 }} height={500}>{<NavbarMinimal></NavbarMinimal>}</Navbar>}>
+            <RoutesApp/>
+          </AppShell>
+        }/>
     </Routes>
   );
 }
-//<Api files={[]} />
+
 export default App;
 export { textState };

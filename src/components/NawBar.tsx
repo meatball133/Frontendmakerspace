@@ -98,12 +98,11 @@ export default function NavbarMinimal() {
 }
 
 export async function logout() {
-  const loggedIn = localStorage.getItem('uuid');
   await fetch('https://worker.nti-johanneberg.workers.dev/logout', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({"uuid": localStorage.getItem('uuid')}),})
+    body: JSON.stringify({"uuid": localStorage.getItem('uuid')})
+  })
   localStorage.removeItem('uuid');
   window.location.href = '/';
-
 }

@@ -52,9 +52,9 @@ export default function TableReviews() {
     return (
       <tr key={row.id}>
         <td >
-        <Center>
+          <Center>
             {row.name}
-            </Center>
+          </Center>
         </td>
 
         <td><Center>{row.state}</Center></td>
@@ -92,18 +92,20 @@ export default function TableReviews() {
         <thead>
           <tr>
             <th>
-                <Text align='center'>
+              <Text align='center'>
                 Printer_name
-                </Text>
-                </th>
-            <th>
-            <Text align='center'>
-            Status
-            </Text>
+              </Text>
             </th>
-            <th>            <Text align='center'>
-            Time
-            </Text></th>
+            <th>
+              <Text align='center'>
+                Status
+              </Text>
+            </th>
+            <th>            
+              <Text align='center'>
+                Time
+              </Text>
+            </th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
